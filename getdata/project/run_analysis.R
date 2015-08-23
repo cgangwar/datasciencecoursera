@@ -48,4 +48,4 @@ dtTidy1 <- dt[, list(count = .N , average = mean(value)), by=key(dt)]
 setkey(dtTidy1, subject, activityName, featureName, count, average)
 dtTidy2 <- dtTidy1[, c(key(dtTidy1)), with=FALSE]
 head(dtTidy2)
-
+write.table(dtTidy2, "./tidyData.txt", row.name = FALSE)
