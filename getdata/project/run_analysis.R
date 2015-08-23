@@ -43,9 +43,5 @@ dt <- merge(dt, dtFeatures, by="featureCode", all.x = TRUE)
 
 #Step5.  From the data set in step 4, creates a second, independent tidy data set 
 # with the average of each variable for each activity and each subject.
-setkey(dt, subject, activityNum, activityName, featureNum, featureName)
-dtTidy1 <- dt[, list(count = .N , average = mean(value)), by=key(dt)]
-setkey(dtTidy1, subject, activityName, featureName, count, average)
-dtTidy2 <- dtTidy1[, c(key(dtTidy1)), with=FALSE]
-head(dtTidy2)
-write.table(dtTidy2, "./tidyData.txt", row.name = FALSE)
+dtTidy <- dcast(dt, subject + activityName ~ featureName , fun.aggregate = mean)
+write.table(dtTidy, "./tidyData.txt", row.name = FALSE)

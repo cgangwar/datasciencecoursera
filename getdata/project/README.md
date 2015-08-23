@@ -5,8 +5,6 @@ It expects the samsung data to be current working directory with test and train 
 
 Variables 
 
- subject  - subject number 
+ subject  - subject id
  activityName  - Activity Names as per "./UCI HAR Dataset/activity_labels.txt"
- featureName - feature names as per "./UCI HAR Dataset/features.txt"
- count    - number of samples
- average - average value
+ f* - feature names as per "./UCI HAR Dataset/features.txt"
